@@ -1,0 +1,34 @@
+WikiNewsのダンプデータから作成した日本語ニュースカテゴリコーパス
+
+● これは何？
+
+ニュースのタイトル・本文とそのニュースが属するカテゴリのコーパスです。
+
+日本語版WikiNewsに存在するカテゴリのうち、 スポーツ, 事件, 事故, 学術, 政治, 文化, 気象, 社会, 経済, 野球 に限定し、それらが付与されている記事のみを抜き出しました。
+
+また、MediaWiki記法で書かれているテキストは可能な限りパースしてきれいにしてあります。
+
+● データフォーマット
+
+以下のデータの配列です。
+
+{
+    "categories": カテゴリのリスト,
+    "id": 取得元WikiNewsの記事ID,
+    "text": 記事本文,
+    "title": 記事タイトル
+}
+
+● データ取得元
+
+日本語版WikiNews 2019年2月1日ダンプ
+
+https://dumps.wikimedia.org/jawikinews/20190201/
+
+● ライセンス
+
+WikiNewsのライセンスに準じます。
+一部の例外を除き CC-by-2.5 です。
+https://creativecommons.org/licenses/by/2.5/
+
+詳細は https://dumps.wikimedia.org/legal.html を参照ください。
