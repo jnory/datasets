@@ -9,7 +9,12 @@ WikiNewsのダンプデータから作成した日本語ニュースカテゴリ
 また、MediaWiki記法で書かれているテキストは可能な限りパースしてきれいにしてあります。
 
 ● データフォーマット
+データは以下の2種類あります。
 
+* jawikinews.json: 全体で一つのデータ
+* jawikinews.dataset.json: 機械学習に便利なように加工したデータセット
+
+[jawikinews.json]
 以下のデータの配列です。
 
 {
@@ -18,6 +23,26 @@ WikiNewsのダンプデータから作成した日本語ニュースカテゴリ
     "text": 記事本文,
     "title": 記事タイトル
 }
+
+[jawikinews.dataset.json]
+{
+    "train": 学習用データ,
+    "dev": 開発用データ,
+    "test": テスト用データ,
+    "vocab": 単語ID一覧,
+    "categories": カテゴリID一覧,
+}
+
+データは以下のフォーマットです。
+{
+    "id": 取得元WikiNewsの記事ID,
+    "text": 形態素解析済記事本文,
+    "title": 記事タイトル,
+    "category": カテゴリ名,
+    "cat_id": カテゴリID,
+    "word_ids": 記事本文を単語ID列に変換したもの
+}
+
 
 ● データ取得元
 
