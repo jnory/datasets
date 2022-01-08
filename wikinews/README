@@ -12,7 +12,10 @@ WikiNewsのダンプデータから作成した日本語ニュースカテゴリ
 データは以下の2種類あります。
 
 * jawikinews.json: 全体で一つのデータ
-* jawikinews.dataset.json: 機械学習に便利なように加工したデータセット
+* jawikinews.dataset.v2.json: 機械学習に便利なように加工したデータセット, 複数カテゴリに属する記事は除去しています。
+* jawikinews.dataset.json: （旧版） 機械学習に便利なように加工したデータセット, 複数カテゴリに属する記事は除去しています。
+
+※ jawikinews.dataset.jsonとjawikinews.dataset.v2.jsonに含まれる記事は同一です。
 
 [jawikinews.json]
 以下のデータの配列です。
@@ -24,13 +27,30 @@ WikiNewsのダンプデータから作成した日本語ニュースカテゴリ
     "title": 記事タイトル
 }
 
-[jawikinews.dataset.json]
+[jawikinews.dataset.v2.json]
+{
+    "train": 学習用データ,
+    "dev": 開発用データ,
+    "test": テスト用データ,
+}
+
+データは以下のフォーマットです。
+{
+    "id": 取得元WikiNewsの記事ID(integer),
+    "text": 記事本文(string),
+    "title": 記事タイトル(string),
+    "category": カテゴリ名(string),
+    "sentences": 文分割・正規化済み本文(array of string)
+}
+
+
+[jawikinews.dataset.json（旧版）]
 {
     "train": 学習用データ,
     "dev": 開発用データ,
     "test": テスト用データ,
     "vocab": 単語ID一覧,
-    "categories": カテゴリID一覧,
+    "category": カテゴリID,
 }
 
 データは以下のフォーマットです。
